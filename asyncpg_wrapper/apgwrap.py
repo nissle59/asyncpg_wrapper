@@ -1,9 +1,9 @@
 import asyncio
 import logging
 from typing import List, Dict
-
 import asyncpg
 
+__all__ = 'AsyncDB'
 LOGGER = logging.getLogger(__name__)
 
 
