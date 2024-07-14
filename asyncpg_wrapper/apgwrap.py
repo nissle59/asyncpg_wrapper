@@ -81,37 +81,3 @@ class AsyncDB:
             LOGGER.critical(e, exc_info=True)
         finally:
             await conn.close()
-
-
-# Пример использования:
-async def test():
-    dsn = "postgresql://username:password@host:port/dbname"
-    db = AsyncDB(dsn)
-
-    # Примеры операций:
-    new_record = await db.insert('users', {'first_name': 'John', 'last_name': 'Doe'})
-    print(new_record)
-
-    l = [{'first_name': f'John{i}', 'last_name': f'Doe{i}'} for i in range(0, 1000)]
-    new_records = await db.insertmany('users', l)
-    print(new_records)
-
-    updated_record = await db.update('users', "id=1", {'first_name': 'Jane'})
-    print(updated_record)
-
-    deleted_records = await db.delete('users', "first_name='Jane'")
-    print(deleted_records)
-
-    deleted_records = await db.delete('users')
-    print(deleted_records)
-
-    selected_records = await db.select('users', 'id=1')
-    print(selected_records)
-
-    selected_records = await db.select('users')
-    print(selected_records)
-
-
-if __name__ == "__main__":
-    # Запуск примера:
-    asyncio.run(test())
