@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='asyncpg_wrapper',
-    version='0.1.0',
+    version='0.1.1',
     description='AsyncPG Easy-To-Use wrapper',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
